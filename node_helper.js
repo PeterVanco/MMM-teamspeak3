@@ -108,7 +108,6 @@ module.exports = NodeHelper.create({
         // If successfully connected
         if(self.connected){
             // clentlist query to Teamspeak3 server
-            console.log(self.consolePrefix + 'Sending clientlist query to TeamSpeak3 server');
             self.cl.send("clientlist", function(err, response, rawResponse){
 
                 // Cleaning the client list
