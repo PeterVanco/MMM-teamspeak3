@@ -57,18 +57,18 @@ module.exports = NodeHelper.create({
         self.cl.on('error', (err) => {
             self.connected = false;
             self.sendSocketNotification('TS3-ERROR', err.code);
-            console.error(self.consolePrefix + err);
+            //console.error(self.consolePrefix + err);
         });
         
-        console.log(self.consolePrefix + 'Login: ' + self.config.login);
-        console.log(self.consolePrefix + 'Password: *****');
+        //console.log(self.consolePrefix + 'Login: ' + self.config.login);
+        //console.log(self.consolePrefix + 'Password: *****');
 
         // Login query to host with login/passwd
         self.cl.send("login", {client_login_name: self.config.login, client_login_password: self.config.passwd}, function(err, response, rawResponse){
             // Checking error
             if(typeof err !== 'undefined'){
                 var msg = 'Connexion failed : ' + err.msg;
-                console.log(self.consolePrefix + msg);
+                // console.log(self.consolePrefix + msg);
                 self.connected = false;
                 self.sendSocketNotification('TS3-ERROR', msg);
             }
@@ -124,7 +124,7 @@ module.exports = NodeHelper.create({
         }
         else{
             self.connected = false;
-            console.log(self.consolePrefix + 'No connexion to TeamSpeak3 server, trying to reconnect');
+            // console.log(self.consolePrefix + 'No connexion to TeamSpeak3 server, trying to reconnect');
             self.logIn();
         }
     },
